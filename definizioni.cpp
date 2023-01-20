@@ -45,7 +45,7 @@ void caricaStruct(dipendente azienda[], int dim) {
 
 void visualizzaInfo(dipendente azienda[], int dim){
     for(int i = 0; i < dim; i++){
-        printf("Nome: %s\n", azienda[i].nome);
+        printf("\nNome: %s\n", azienda[i].nome);
         printf("Cognome: %s\n", azienda[i].cognome);
         printf("Stipendio mensile: %s\n\n\n", azienda[i].stipendioS);
     }
