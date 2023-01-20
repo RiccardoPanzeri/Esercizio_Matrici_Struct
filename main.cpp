@@ -30,25 +30,22 @@ int main() {
 
     //parte 4: spacchetto la stringa e la inserisco in un'altra matrice:
     char matrice2[righe] [colonne];
-    //strcpy(matrice2[0], "");
-    //strcpy(matrice2[1] , "");
-    //strcpy(matrice2[2], "");
-    int cont = 0;
-    int j = 0;
+    int cont = 0;//contatore per i caratteri della stringa csv;
+    int j = 0;//contatore colonne;
     for(int i = 0; i < righe; i++) {
-        while(csv[cont] != ',' && csv[cont] != '\0' && csv[cont] != ' ') {
+        while(csv[cont] != ',' && csv[cont] != '\0' && csv[cont] != ' ') {//finchè i caratteri di csv sono diversi dalle virgole o dagli spazi, e la stringa non è finita, copio il carattere nella colonna della riga i;
             matrice2[i][j] = csv[cont];
-            cont++;
+            cont++;//incremento entrambi i contatori;
             j++;
         }
-        while(csv[cont] == ' ' || csv[cont] == ','){
+        while(csv[cont] == ' ' || csv[cont] == ','){//se il carattere è una virgola o uno spazio, incremento il contatore;
             cont++;
         }
 
-        matrice2[i] [j] = '\0';//inserisco il fine stringa
+        matrice2[i] [j] = '\0';//inserisco il fine stringa;
 
-        j = 0;
-        printf("%s\n", matrice2[i]);
+        j = 0;//azzero il contatore della colonna;
+        printf("%s\n", matrice2[i]);//stampo la stringa della matrice;
     }
 
 
