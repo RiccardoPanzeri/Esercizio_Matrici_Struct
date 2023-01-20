@@ -12,7 +12,7 @@ void caricaStruct(dipendente azienda[], int dim) {
     bool numerico = true;//variabile booleana che stabilisce se la variabile stipendio è composta solo da caratteri numerici;
     int  n;//contatore per il controllo della variabile stipendio;
     for (int i = 0; i < dim; i++) {
-        n = 0;
+        n = 0;//azzero il contatore
         printf("Inserisci il nome del %d° impiegato: \n", i + 1);
         scanf("%s", nome);//richiedo l'input dell'utente;
         strcpy(azienda[i].nome, nome);//Copio la stringa contente il nome inserito dall'utente;
@@ -20,20 +20,21 @@ void caricaStruct(dipendente azienda[], int dim) {
         scanf("%s", cognome);
         strcpy(azienda[i].cognome, cognome);//stessa cosa per il cognome;
         do {//controllo che l'utente non abbia inserito lettere nel campo ''stipendio'';
+            n = 0;//azzero il contatore;
             numerico = true;//riposiziono il valore booleano su ''true'' per permettere al ciclo di controllo di ripartire per ogni dipendente;
             printf("Inserisci lo stipendio mensile del %d° impiegato: \n", i + 1);
             scanf(" %s", stipendioS);//richiedo l'input dell'utente;
             strcpy(azienda[i].stipendioS, stipendioS);
             //analizzo la stringa
             while (azienda[i].stipendioS[n] != '\0' && numerico == true) {//finche la stringa non termina e nessun carattere non numerico viene trovato, il ciclo continua;
-                if(isdigit(azienda[0].stipendioS[i]) == 0){//se lo stipendio contiene caratteri non numerici, la variabile booleana viene settata su false;
+                if(isdigit(azienda[i].stipendioS[n]) == 0){//se lo stipendio contiene caratteri non numerici, la variabile booleana viene settata su false;
                     numerico = false;//il ciclo in questo caso termina, perchè sono presenti dei caratteri non numerici;
 
                 }
                 n++;//passo al carattere successivo;
             }
             if (numerico == true) {//se terminato il ciclo while il valore booleano risulta vero, converto la stringa in numero e la assegno alla variabile della struct;
-                azienda[i].stipendio = atoi(azienda[0].stipendioS);
+                azienda[i].stipendio = atoi(azienda[i].stipendioS);
             } else {
                 printf("Input errato!\n");//altrimenti, mostro un messaggio di errore;
                 strcpy(stipendioS, "");//e svuoto la stringa stipendio iniziale;
